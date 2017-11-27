@@ -1,0 +1,11 @@
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.0\CityInfo.API.deps.json
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.0\CityInfo.API.runtimeconfig.json
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.0\CityInfo.API.runtimeconfig.dev.json
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.0\CityInfo.API.dll
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\bin\Debug\netcoreapp2.0\CityInfo.API.pdb
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.csprojResolveAssemblyReference.cache
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.csproj.CoreCompileInputs.cache
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.AssemblyInfoInputs.cache
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.AssemblyInfo.cs
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.dll
+c:\users\trey\documents\visual studio 2017\Projects\CityInfo\CityInfo.API\obj\Debug\netcoreapp2.0\CityInfo.API.pdb
