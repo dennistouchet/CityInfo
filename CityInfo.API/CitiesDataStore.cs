@@ -19,19 +19,64 @@ namespace CityInfo.API
                 {
                     Id = 1,
                     Name = "New York City",
-                    Description = "The one with the big park."
+                    Description = "The one with the big park.",
+                    PointsOfInterest = new List<PointsOfInterestDto>()
+                    {
+                        new PointsOfInterestDto()
+                        {
+                            Id = 1,
+                            Name = "Central Park",
+                            Description = "The most visited urbain park in the USA"
+                        },
+                        new PointsOfInterestDto()
+                        {
+                            Id = 2,
+                            Name = "Empire State Building",
+                            Description = "A 102-story skyscraper in Midtown."
+                        }
+                    }
                 },
                 new CityDto()
                 {
                     Id = 2,
                     Name = "Antwerp",
-                    Description = "The one with the cathedral they never finished."
+                    Description = "The one with the cathedral they never finished.",
+                    PointsOfInterest = new List<PointsOfInterestDto>()
+                    {
+                        new PointsOfInterestDto()
+                        {
+                            Id = 3,
+                            Name = "Cethedral of Our Lady",
+                            Description = "Gothic style cathedral"
+                        },
+                        new PointsOfInterestDto()
+                        {
+                            Id = 4,
+                            Name = "Antwerp Central Station",
+                            Description = "A fine railway structure"
+                        }
+                    }
                 },
                 new CityDto()
                 {
                     Id = 3,
                     Name = "Paris",
-                    Description = "The one with the point tower."
+                    Description = "The one with the point tower.",
+                    PointsOfInterest = new List<PointsOfInterestDto>()
+                    {
+                        new PointsOfInterestDto()
+                        {
+                            Id = 5,
+                            Name = "The Eiffel Town",
+                            Description = "A wrought iron lattice tower"
+                        },
+                        new PointsOfInterestDto()
+                        {
+                            Id = 6,
+                            Name = "The Louvre",
+                            Description = "The world's Largest museum."
+                        }
+                    }
                 }
             };
         }
