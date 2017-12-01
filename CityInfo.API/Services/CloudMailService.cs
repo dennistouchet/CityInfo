@@ -15,7 +15,7 @@ namespace CityInfo.API.Services
         public void Send(string subject, string body)
         {
             // mock send mail - outpupt to debug window
-            Debug.WriteLine($"Mail from {_mailFrom}, with CloudMailService.");
+            Debug.WriteLine($"Mail to {_mailTo}, with CloudMailService.");
             Debug.WriteLine($"Subject: {subject}");
             Debug.WriteLine($"Message: {body}");
         }

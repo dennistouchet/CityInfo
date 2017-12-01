@@ -19,7 +19,7 @@ namespace CityInfo.API
     public class Startup
     {
         // config init
-        public static IConfiguration Configuration;
+        public static IConfiguration Configuration { get; private set; }
 
         public Startup(IConfiguration configuration)
         {
