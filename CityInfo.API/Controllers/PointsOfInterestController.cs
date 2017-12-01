@@ -24,7 +24,6 @@ namespace CityInfo.API.Controllers
         {
             try
             {
-                throw new Exception("Test Exception");
                 var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
                 if(city == null)
                 {
@@ -36,7 +35,7 @@ namespace CityInfo.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogCritical($"Exception while getting points of interest with cityId: {cityId}.", ex);
-                return StatusCode(500, "There was an issue with your request.");
+                return StatusCode(500, "There was an issue with your api request.");
             }
         }
 
