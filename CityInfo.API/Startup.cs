@@ -13,6 +13,8 @@ using NLog.Extensions.Logging;
 using CityInfo.API.Services;
 using CityInfo.API.Interfaces;
 using Microsoft.Extensions.Configuration;
+using CityInfo.API.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CityInfo.API
 {
@@ -49,6 +51,8 @@ namespace CityInfo.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif 
+            var connectionstring = @"Server=(localdb)\mssqllocaldb;Database=CityInfoDb;Trusted_Connection=True;";
+            services.AddDbContext<CityInfoContext>( o => o.UseSqlServer(connectionstring));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
