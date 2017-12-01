@@ -12615,11 +12615,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Trey\\documents\\visual studio 2017\\Projects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
+      "projectUniqueName": "C:\\Users\\Trey\\Documents\\Visual Studio 2017\\Projects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
       "projectName": "CityInfo.API",
-      "projectPath": "C:\\Users\\Trey\\documents\\visual studio 2017\\Projects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
+      "projectPath": "C:\\Users\\Trey\\Documents\\Visual Studio 2017\\Projects\\CityInfo\\CityInfo.API\\CityInfo.API.csproj",
       "packagesPath": "C:\\Users\\Trey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Trey\\documents\\visual studio 2017\\Projects\\CityInfo\\CityInfo.API\\obj\\",
+      "outputPath": "C:\\Users\\Trey\\Documents\\Visual Studio 2017\\Projects\\CityInfo\\CityInfo.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
