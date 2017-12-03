@@ -51,7 +51,7 @@ namespace CityInfo.API
 #else
             services.AddTransient<IMailService, CloudMailService>();
 #endif 
-            var connectionstring = @"Server=(localdb)\mssqllocaldb;Database=CityInfoDb;Trusted_Connection=True;";
+            var connectionstring = Startup.Configuration["connectionStrings:cityInfoDbConnectionString"];
             services.AddDbContext<CityInfoContext>( o => o.UseSqlServer(connectionstring));
         }
 
