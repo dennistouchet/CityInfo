@@ -53,16 +53,21 @@ namespace CityInfo.API
 #endif 
             var connectionstring = Startup.Configuration["connectionStrings:cityInfoDbConnectionString"];
             services.AddDbContext<CityInfoContext>( o => o.UseSqlServer(connectionstring));
+
+            services.AddScoped<ICityInfoRepository, CityInfoRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
+            CityInfoContext cityInfoContext)
         {
             loggerFactory.AddConsole();
             loggerFactory.AddDebug();
             //loggerFactory.AddProvider(new NLog.Extensions.Logging.NLogLoggerProvider());
             loggerFactory.AddNLog();
 
+            cityInfoContext.EnsureSeedDataForContext();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
