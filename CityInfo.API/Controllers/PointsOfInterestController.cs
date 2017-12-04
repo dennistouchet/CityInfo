@@ -209,22 +209,27 @@ namespace CityInfo.API.Controllers
         [HttpDelete("{cityId}/pointsofinterest/{id}")]
         public IActionResult DeletePointOfInterest(int cityId, int id)
         {
-            var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
-            if (city == null)
+            if (!_cityInfoRepository.CityExists(cityId))
+            {
+                _logger.LogInformation($"City with id {cityId} was not found when accessing Points Of Interest.");
+                return NotFound();
+            }
+
+            var pointOfInterestEntity = _cityInfoRepository.GetPointOfInterestForCity(cityId, id);
+            if (pointOfInterestEntity == null)
             {
                 return NotFound();
             }
 
-            var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(p => p.Id == id);
-            if (pointOfInterestFromStore == null)
-            {
-                return NotFound();
-            }
+            _cityInfoRepository.DeletePointOfInterest(pointOfInterestEntity);
 
-            city.PointsOfInterest.Remove(pointOfInterestFromStore);
+            if (!_cityInfoRepository.Save())
+            {
+                return StatusCode(500, "A problem occured while handling your request.");
+            }
 
             _mailService.Send("Point of interest deleted.",
-                $"Point of interest {pointOfInterestFromStore.Name} with id {pointOfInterestFromStore.Id} was deleted.");
+                $"Point of interest {pointOfInterestEntity.Name} with id {pointOfInterestEntity.Id} was deleted.");
 
             return NoContent();
         }
