@@ -161,25 +161,20 @@ namespace CityInfo.API.Controllers
                 return BadRequest();
             }
 
-            var city = CitiesDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
-            if (city == null)
+            if (!_cityInfoRepository.CityExists(cityId))
+            {
+                _logger.LogInformation($"City with id {cityId} was not found when accessing Points Of Interest.");
+                return NotFound();
+            }
+
+            var pointOfInterestEntity = _cityInfoRepository.GetPointOfInterestForCity(cityId, id);
+            if (pointOfInterestEntity == null)
             {
                 return NotFound();
             }
 
-            var pointOfInterestFromStore = city.PointsOfInterest.FirstOrDefault(p => p.Id == id);
-            if (pointOfInterestFromStore == null)
-            {
-                return NotFound();
-            }
-
-            // convert to update dto class
-            var pointOfInterestToPatch = new PointOfInterestForUpdateDto()
-            {
-                Name = pointOfInterestFromStore.Name,
-                Description = pointOfInterestFromStore.Description
-            };
-
+            var pointOfInterestToPatch = Mapper.Map<PointOfInterestForUpdateDto>(pointOfInterestEntity);
+            
             // apply patch doc to patch class
             patchDoc.ApplyTo(pointOfInterestToPatch, ModelState);
 
@@ -202,11 +197,12 @@ namespace CityInfo.API.Controllers
                 return BadRequest(ModelState);
             }
 
+            Mapper.Map(pointOfInterestToPatch, pointOfInterestEntity);
 
-            // patch values in data store
-            pointOfInterestFromStore.Name = pointOfInterestToPatch.Name;
-            pointOfInterestFromStore.Description = pointOfInterestToPatch.Description;
-
+            if (!_cityInfoRepository.Save())
+            {
+                return StatusCode(500, "A problem occured while handling your request.");
+            }
             return NoContent();
         }
 
